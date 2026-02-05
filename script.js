@@ -1,7 +1,9 @@
-const container = document.querySelector("#container");
+createColumns(16);
+createDivs(16);
 
 // create X div column with flex display column
 function createColumns(number) {
+  const container = document.querySelector("#container");
   for (let i = 0; i < number; i++) {
     const div = document.createElement("div");
     div.className = "column";
@@ -22,22 +24,38 @@ function createDivs(number) {
       const div = document.createElement("div");
       div.className = "row";
       // painting div
-      painting(number);
-      e.appendChild(div);
-    }
-  });
-}
-
-function painting(number) {
-  columns.forEach((e) => {
-    for (let i = 0; i < number; i++) {
       div.addEventListener("mouseenter", () => {
         div.className = "over";
       });
       div.addEventListener("mouseleave", () => {
         div.className = "row";
       });
+      e.appendChild(div);
     }
+  });
+}
+
+// modify grid size
+
+function modifiyGridRatio(number) {
+  // 1. remove the grid
+  removeGrid();
+  // 2. create the new grid with X ratio
+  createColumns(number);
+  createDivs(number);
+}
+
+function removeGrid() {
+  // remove all rows
+  const rows = document.querySelectorAll(".row");
+  rows.forEach((e) => {
+    e.remove();
+  });
+  // remove all columns
+  const columns = document.querySelectorAll(".column");
+
+  columns.forEach((e) => {
+    e.remove();
   });
 }
 
@@ -47,12 +65,16 @@ button = document.querySelector("button");
 button.addEventListener("click", () => {
   value = prompt("choose the number of squares per side");
   valueInt = parseInt(value);
-  if (valueInt === NaN) {
-    alert("bro this is not a numbe, try again");
-  }
+  console.log(valueInt);
+
+  if (valueInt > 100) return alert("more than 100x100 is not alowed");
+  if (valueInt === NaN)
+    return alert("This is not a number please make an effort ");
+  // modify text
   h3 = document.querySelector("#ratioText").textContent =
     "Ratio: " + valueInt + "x" + valueInt;
-  return valueInt;
+  // modify the grid Ratio
+  modifiyGridRatio(value);
 });
 
 topDiv = document.querySelector(".top");
