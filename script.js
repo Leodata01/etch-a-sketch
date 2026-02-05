@@ -76,5 +76,3 @@ button.addEventListener("click", () => {
   // modify the grid Ratio
   modifiyGridRatio(value);
 });
-
-topDiv = document.querySelector(".top");
