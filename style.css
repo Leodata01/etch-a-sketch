@@ -1,0 +1,23 @@
+.row {
+  background-color: pink;
+  flex: 1;
+}
+
+#container {
+  display: flex;
+  height: 60vh;
+  padding: 40px;
+}
+
+.over {
+  flex: 1;
+  background-color: blue;
+}
+
+.top {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
