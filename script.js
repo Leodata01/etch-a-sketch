@@ -27,9 +27,9 @@ function createDivs(number) {
       div.addEventListener("mouseenter", () => {
         div.className = "over";
       });
-      div.addEventListener("mouseleave", () => {
-        div.className = "row";
-      });
+      // div.addEventListener("mouseleave", () => {
+      //   div.className = "row";
+      // });
       e.appendChild(div);
     }
   });

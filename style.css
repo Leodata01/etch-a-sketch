@@ -6,7 +6,7 @@
 #container {
   display: flex;
   height: 75vh;
-  padding: 20px 40px;
+  padding: 0px 40px 20px;
 }
 
 .over {
@@ -15,6 +15,7 @@
 }
 
 .top {
+  padding: 20px 40px;
   height: 20vh;
   display: flex;
   justify-content: center;
