@@ -32,19 +32,16 @@ function createDivs(number) {
         // random value 0 to 255
         let color = e.target.style.opacity;
         colorNumber = parseFloat(color);
-        colorNumber += 0.1;
+        if (colorNumber < 1) colorNumber += 0.1;
+
         console.log(colorNumber);
         const rgb1 = randomRGB();
         const rgb2 = randomRGB();
         const rgb3 = randomRGB();
         e.target.style.backgroundColor = `rgb(${rgb1} ${rgb2} ${rgb3})`;
         e.target.style.opacity = colorNumber;
-
-        // increase opacity by 10%
       });
-      // div.addEventListener("mouseleave", () => {
-      //   div.className = "row";
-      // });
+
       e.appendChild(div);
     }
   });
@@ -92,8 +89,8 @@ button.addEventListener("click", () => {
   modifiyGridRatio(value);
 });
 
-// random number 0 to 255
+// random number 150 to 255
 function randomRGB() {
-  let random = Math.round(Math.random() * (255 - 100) + 100);
+  let random = Math.round(Math.random() * (255 - 150) + 150);
   return random;
 }
