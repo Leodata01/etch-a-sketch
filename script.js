@@ -23,9 +23,24 @@ function createDivs(number) {
     for (let i = 0; i < number; i++) {
       const div = document.createElement("div");
       div.className = "row";
+      div.style.opacity = 0;
+      div.style.flex = 1;
+      div.style.backgroundColor = "rgb(0 0 0)";
+
       // painting div
-      div.addEventListener("mouseenter", () => {
-        div.className = "over";
+      div.addEventListener("mouseenter", (e) => {
+        // random value 0 to 255
+        let color = e.target.style.opacity;
+        colorNumber = parseFloat(color);
+        colorNumber += 0.1;
+        console.log(colorNumber);
+        const rgb1 = randomRGB();
+        const rgb2 = randomRGB();
+        const rgb3 = randomRGB();
+        e.target.style.backgroundColor = `rgb(${rgb1} ${rgb2} ${rgb3})`;
+        e.target.style.opacity = colorNumber;
+
+        // increase opacity by 10%
       });
       // div.addEventListener("mouseleave", () => {
       //   div.className = "row";
@@ -76,3 +91,9 @@ button.addEventListener("click", () => {
   // modify the grid Ratio
   modifiyGridRatio(value);
 });
+
+// random number 0 to 255
+function randomRGB() {
+  let random = Math.round(Math.random() * (255 - 100) + 100);
+  return random;
+}
