@@ -25,7 +25,10 @@ function createDivs(number) {
       div.className = "row";
       div.style.opacity = 0;
       div.style.flex = 1;
-      div.style.backgroundColor = "rgb(0 0 0)";
+      const rgb1 = randomRGB();
+      const rgb2 = randomRGB();
+      const rgb3 = randomRGB();
+      div.style.backgroundColor = `rgb(${rgb1} ${rgb2} ${rgb3})`;
 
       // painting div
       div.addEventListener("mouseenter", (e) => {
@@ -33,12 +36,6 @@ function createDivs(number) {
         let color = e.target.style.opacity;
         colorNumber = parseFloat(color);
         if (colorNumber < 1) colorNumber += 0.1;
-
-        console.log(colorNumber);
-        const rgb1 = randomRGB();
-        const rgb2 = randomRGB();
-        const rgb3 = randomRGB();
-        e.target.style.backgroundColor = `rgb(${rgb1} ${rgb2} ${rgb3})`;
         e.target.style.opacity = colorNumber;
       });
 
@@ -77,7 +74,6 @@ button = document.querySelector("button");
 button.addEventListener("click", () => {
   value = prompt("choose the number of squares per side");
   valueInt = parseInt(value);
-  console.log(valueInt);
 
   if (valueInt > 100) return alert("more than 100x100 is not alowed");
   if (valueInt === NaN)

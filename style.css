@@ -1,15 +1,13 @@
 .row {
+  border-color: white;
+  border-width: 10px;
+  margin: 1px;
 }
 
 #container {
   display: flex;
   height: 75vh;
   padding: 0px 40px 20px;
-}
-
-.over {
-  flex: 1;
-  opacity: 0;
 }
 
 .top {
